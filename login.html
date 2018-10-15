@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="line"></div>
+        <h3>ДАНІ КОРИСТУВАЧА</h3>
+        <div class="line"></div>
+        <div class="well userPanel"><form role="form" action="login-result.html" method="get">
+            <div class="form-group">
+                <label for="userNameInput">Ім'я користувача:</label>
+                <input id="userNameInput" name="username" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input id="password" name="pwd" type="password" class="form-control" />
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input name="remember" type="checkbox">Запам'ятати менe
+                </label>
+            </div>
+            <p id="errorMessage" style="display: none;" class="alert alert-danger">Невірний логін або пароль!</p>
+            <button type="submit" class="btn btn-default">Виконати вхід</button>
+        </form>
+        </div>
+    </div>
+
+    <script>
+        var sPageURL = decodeURIComponent(window.location.search.substring(1));
+        if(sPageURL && sPageURL.indexOf("bad_user=1")>=0) {
+            document.getElementById("errorMessage").style.display = 'block';
+        }
+        else
+            document.getElementById("errorMessage").style.display = 'none';
+    </script>
+</body>
+</html>
